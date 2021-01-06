@@ -7,6 +7,7 @@
 #include<windows.h>
 #include <vector>
 #include <string>
+#include <stdio.h>
 
 using namespace std;
 
@@ -22,15 +23,15 @@ public:
 	}
 	string name;
 	string passwd;
-	bool flag;//0-ÓÃ»§  ¹ÜÀíÔ±-1		
+	bool flag;//0-ç”¨æˆ·  ç®¡ç†å‘˜-1		
 };
 
 vector<User > user;
 
-class livers//liversÀà
+class livers//liversç±»
 { 
 public:
-char name[20];//ĞÕÃû
+char name[20];//å§“å
 	char sex;
 	char room_num[10];
 	char parking[10];
@@ -47,7 +48,7 @@ strcpy(name,n);
    strcpy(phone_num,phone);
    strcpy(ID_num,ID);
 }
-friend void menu();//ÓÑÔªº¯Êı
+friend void menu();//å‹å…ƒå‡½æ•°
 };
 
 class name:public livers
@@ -66,7 +67,7 @@ start:
 	ifstream in;
 	char str[20] = { '\0' };
 	ofstream out;
-	fstream f;//ÊäÈëÊä³ö¶ÔÏó
+	fstream f;//è¾“å…¥è¾“å‡ºå¯¹è±¡
 	
 	do {
 	
@@ -75,25 +76,25 @@ start:
 		char ch;
 
 		in.clear();
-		in.open("À²À²À².dat", ios::in);
+		in.open("å•¦å•¦å•¦.dat", ios::in);
 
 		
-		if (in.fail())//Ê×´ÎµÇÂ¼
+		if (in.fail())//é¦–æ¬¡ç™»å½•
 		{
 			
-			cout << endl << "»¶Ó­Ê×´ÎµÇÂ¼£¬ÄúµÄÔ¤ÉèÃÜÂëÎª12345:" << endl << endl;
-			cout << "ÇëÊäÈë:";
+			cout << endl << "æ¬¢è¿é¦–æ¬¡ç™»å½•ï¼Œæ‚¨çš„é¢„è®¾å¯†ç ä¸º12345:" << endl << endl;
+			cout << "è¯·è¾“å…¥:";
 			cin >> mima;
 			cout << endl;
 			if (strcmp(yu_mima, mima) == 0)
 			{
 				flag = 1;
-				cout << "ÃÜÂëÕıÈ·!ÇëÊäÈëÏÂÒ»²½Ö¸Áî:" << endl << endl;
+				cout << "å¯†ç æ­£ç¡®!è¯·è¾“å…¥ä¸‹ä¸€æ­¥æŒ‡ä»¤:" << endl << endl;
 			}
 		}
 		
 
-		if (!in.fail())//·ÇÊ×´ÎµÇÂ½
+		if (!in.fail())//éé¦–æ¬¡ç™»é™†
 		{
 			
 			in >> key;
@@ -123,11 +124,11 @@ start:
 						i++;
 					}
 				}
-				system("cls");//Çå¿Õ
+				system("cls");//æ¸…ç©º
 				cout << "******************************************" << endl;
-				cout << "»¶Ó­µÇÂ¼Ğ¡ÇøÎïÒµ¹ÜÀíÏµÍ³" << endl;
+				cout << "æ¬¢è¿ç™»å½•å°åŒºç‰©ä¸šç®¡ç†ç³»ç»Ÿ" << endl;
 				cout << "******************************************" << endl << endl;
-				cout << "ÇëÊäÈë¹ÜÀíÔ±ÃÜÔ¿:" << endl;
+				cout << "è¯·è¾“å…¥ç®¡ç†å‘˜å¯†é’¥:" << endl;
 				for (int k = 0; k<i; k++)
 				{
 					cout << str[k];
@@ -137,128 +138,128 @@ start:
 			if (strcmp(key, mima) == 0)
 			{
 				flag = 1;
-				cout << "ÃÜÂëÕıÈ·!ÇëÊäÈëÏÂÒ»²½Ö¸Áî:" << endl << endl;
+				cout << "å¯†ç æ­£ç¡®!è¯·è¾“å…¥ä¸‹ä¸€æ­¥æŒ‡ä»¤:" << endl << endl;
 			}
 			else
 			{
-				cout <<endl<< "ÃÜÂë´íÎó£¬ÇëÖØĞÂÊäÈë..." << endl;
+				cout <<endl<< "å¯†ç é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥..." << endl;
 				system("pause");
 				goto start;
 			}
 		}
 		in.close();
 		if (flag == 0)
-			cout << "ÃÜÂëÓĞÎó£¬ÇëÖØĞÂÊäÈë" << endl << endl;
+			cout << "å¯†ç æœ‰è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥" << endl << endl;
 	} while (flag == 0);
 	cout << "         *******         " << endl;
 	cout << "*************************" << endl;
-	cout << "**0¡¢ĞŞ¸ÄÃÜÂë*" << endl;
-	cout << "**1¡¢½øÈëÏµÍ³*" << endl;
-	cout << "**2¡¢ÍË³öÏµÍ³*" << endl;
+	cout << "**0ã€ä¿®æ”¹å¯†ç *" << endl;
+	cout << "**1ã€è¿›å…¥ç³»ç»Ÿ*" << endl;
+	cout << "**2ã€é€€å‡ºç³»ç»Ÿ*" << endl;
 	cout << "*************************" << endl;
 	cout << "         *******         " << endl;
 	do {
 		do
 		{
-			cout << "ÇëÊäÈëÄúµÄÖ¸Áî(0~2):" << endl;
+			cout << "è¯·è¾“å…¥æ‚¨çš„æŒ‡ä»¤(0~2):" << endl;
 			cin >> p;
 			switch (p)
 			{
-			case 0://ĞŞ¸ÄÃÜÂë
+			case 0://ä¿®æ”¹å¯†ç 
 				{
-				cout << "ÇëÊäÈëĞÂÃÜÂë:" << endl;
+				cout << "è¯·è¾“å…¥æ–°å¯†ç :" << endl;
 				cin >> key;
-				out.open("À²À²À².dat", ios::out);
+				out.open("å•¦å•¦å•¦.dat", ios::out);
 				out.clear();
 				out << key;
 				out.close(); }break;
-			case 1:menu(); break;//½øÈëÏµÍ³
-			case 2://ÍË³öÏµÍ³
-			{cout << "Ğ»Ğ»Ê¹ÓÃ£¬Ğ¡ÇøÎïÒµ¹ÜÀíÏµÍ³!" << endl << endl << "Bye-bye!Seeyounexttime!" << endl << endl;
+			case 1:menu(); break;//è¿›å…¥ç³»ç»Ÿ
+			case 2://é€€å‡ºç³»ç»Ÿ
+			{cout << "è°¢è°¢ä½¿ç”¨ï¼Œå°åŒºç‰©ä¸šç®¡ç†ç³»ç»Ÿ!" << endl << endl << "Bye-bye!Seeyounexttime!" << endl << endl;
 			exit(0); }break;
-			default:cout << "ÊäÈëÖ¸ÁîÓĞÎó£¬ÇëÖØĞÂÊäÈë:" << endl << endl; break;
+			default:cout << "è¾“å…¥æŒ‡ä»¤æœ‰è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥:" << endl << endl; break;
 			}
 		} while (p < 0 || p>2);
-		cout << "ÄúÏë¼ÌĞø½øĞĞÆäËû²Ù×÷Âğ£¿y/n:" << endl << "";
+		cout << "æ‚¨æƒ³ç»§ç»­è¿›è¡Œå…¶ä»–æ“ä½œå—ï¼Ÿy/n:" << endl << "";
 		do {
 			cin >> w;
 			cout << endl;
 			if (w == 'n')exit(0);
 			if (w != 'y' && w != 'n')
-				cout << "Ö¸Áî´íÎó£¡ÇëÖØĞÂÊäÈë£¡" << endl;
+				cout << "æŒ‡ä»¤é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥ï¼" << endl;
 		} while (flag == 0);
 		if (w == 'y')
 		{
-			cout << "ÇëÊäÈë²Ù×÷´úÂë:0ĞŞ¸ÄÃÜÂë" << endl;
-			cout << "1½øÈëÏµÍ³" << endl;
-			cout << "2ÍË³öÏµÍ³" << endl;
+			cout << "è¯·è¾“å…¥æ“ä½œä»£ç :0ä¿®æ”¹å¯†ç " << endl;
+			cout << "1è¿›å…¥ç³»ç»Ÿ" << endl;
+			cout << "2é€€å‡ºç³»ç»Ÿ" << endl;
 		}
 	} while (w == 'y');
 }
 
-//ÃÜÔ¿º¯Êı
+//å¯†é’¥å‡½æ•°
 void name::menu()
 {
 	cout << "******************************************" << endl;
-	cout << "Ğ¡ÇøÎïÒµ¹ÜÀíÏµÍ³" << endl;
+	cout << "å°åŒºç‰©ä¸šç®¡ç†ç³»ç»Ÿ" << endl;
 	cout << "******************************************" << endl;
 	cout << "**************************" << endl;
-	cout << "*Ö÷²Ëµ¥ÃüÁîÈçÏÂËùÊ¾£º*" << endl;
-	cout << "*1¡¢ÊäÈëÊı¾İ*" << endl;
-	cout << "*2¡¢Ôö¼ÓÊı¾İ*" << endl;
-	cout << "*3¡¢ĞŞ¸ÄÊı¾İ*" << endl;
-	cout << "*4¡¢ĞÅÏ¢²éÑ¯*" << endl;
-	cout << "*5¡¢ĞÅÏ¢ä¯ÀÀ*" << endl;
-	cout << "*6¡¢ĞÅÏ¢É¾³ı*" << endl;
-	cout << "*7¡¢ÍË³öÏµÍ³*" << endl;
+	cout << "*ä¸»èœå•å‘½ä»¤å¦‚ä¸‹æ‰€ç¤ºï¼š*" << endl;
+	cout << "*1ã€è¾“å…¥æ•°æ®*" << endl;
+	cout << "*2ã€å¢åŠ æ•°æ®*" << endl;
+	cout << "*3ã€ä¿®æ”¹æ•°æ®*" << endl;
+	cout << "*4ã€ä¿¡æ¯æŸ¥è¯¢*" << endl;
+	cout << "*5ã€ä¿¡æ¯æµè§ˆ*" << endl;
+	cout << "*6ã€ä¿¡æ¯åˆ é™¤*" << endl;
+	cout << "*7ã€é€€å‡ºç³»ç»Ÿ*" << endl;
 	cout << "**************************" << endl;
-	cout << "ÇëÊäÈëÄúµÄÖ¸ÁîÊı×Ö£¨1~7£©" << endl << "";
+	cout << "è¯·è¾“å…¥æ‚¨çš„æŒ‡ä»¤æ•°å­—ï¼ˆ1~7ï¼‰" << endl << "";
 	char p; char w;
 	livers liv[50];
 	livers* s[50];
 	ifstream in;
 	ofstream out;
-	fstream f;//ÊäÈëÊä³ö¶ÔÏó
+	fstream f;//è¾“å…¥è¾“å‡ºå¯¹è±¡
 	int i = 0;
 	int j = 0;
 	int flag = 0;
-	do//flagÅĞ¶ÏÊäÈëÊÇ·ñÓĞĞ§
+	do//flagåˆ¤æ–­è¾“å…¥æ˜¯å¦æœ‰æ•ˆ
 	{
 		cin >> p;
 		if (p >= '1' && p <= '7')
 			flag = 1;
 		else
-			cout << "Ö¸Áî´íÎó£¡ÇëÖØĞÂÊäÈë£º" << endl;
+			cout << "æŒ‡ä»¤é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥ï¼š" << endl;
 	} while (flag == 0);
-	do {//×îÍâ²ãÑ­»·
-		switch (p)//½ÓÊÕ¹¦ÄÜÑ¡Ïî
+	do {//æœ€å¤–å±‚å¾ªç¯
+		switch (p)//æ¥æ”¶åŠŸèƒ½é€‰é¡¹
 		{
-		case'1'://ĞÅÏ¢ÊäÈë
+		case'1'://ä¿¡æ¯è¾“å…¥
 		{char name[20], sex, room_num[10], parking[10], phone_num[20], ID_num[20], c;
-		out.open("Êı¾İ.dat", ios::out);
+		out.open("æ•°æ®.dat", ios::out);
 		do {
-			cout << "ÇëÊäÈë×¡»§ĞÕÃû:";
+			cout << "è¯·è¾“å…¥ä½æˆ·å§“å:";
 			cin >> name;
-			cout << endl << "ÇëÊäÈë×¡»§ĞÔ±ğ:";
+			cout << endl << "è¯·è¾“å…¥ä½æˆ·æ€§åˆ«:";
 			cin >> sex;
-			cout << endl << "ÇëÊäÈëÆä·¿¼äºÅ:";
+			cout << endl << "è¯·è¾“å…¥å…¶æˆ¿é—´å·:";
 			cin >> room_num;
-			cout << endl << "ÇëÊäÈëÆä³µ¿âºÅ:";
+			cout << endl << "è¯·è¾“å…¥å…¶è½¦åº“å·:";
 			cin >> parking;
-			cout << endl << "ÇëÊäÈëÁªÏµµç»°:";
+			cout << endl << "è¯·è¾“å…¥è”ç³»ç”µè¯:";
 			cin >> phone_num;
-			cout << endl << "ÇëÊäÈëÉí·İÖ¤ºÅ:";
+			cout << endl << "è¯·è¾“å…¥èº«ä»½è¯å·:";
 			cin >> ID_num;
 			cout << endl;
-			out << setw(20) << name << setw(5) << sex << setw(10) << room_num << setw(10) << parking << setw(20) << phone_num << setw(20) << ID_num;//ÎÄ¼şÊäÈë
-			cout << "Êı¾İÊäÈë³É¹¦£¬Ïë¼ÌĞøÊäÈëÂğ£¿y/n:" << endl << "";
+			out << setw(20) << name << setw(5) << sex << setw(10) << room_num << setw(10) << parking << setw(20) << phone_num << setw(20) << ID_num;//æ–‡ä»¶è¾“å…¥
+			cout << "æ•°æ®è¾“å…¥æˆåŠŸï¼Œæƒ³ç»§ç»­è¾“å…¥å—ï¼Ÿy/n:" << endl << "";
 			cin >> c;
 			cout << endl;
 			do
 			{
 				if (c != 'y' && c != 'n')
 				{
-					cout << "Ö¸Áî´íÎó£¡ÇëÖØĞÂÊäÈë£¡" << endl << "";
+					cout << "æŒ‡ä»¤é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥ï¼" << endl << "";
 					char c;
 					cin >> c;
 				}
@@ -268,48 +269,48 @@ void name::menu()
 		out.close();
 		break;
 		}
-		case '2'://Ôö¼ÓÊı¾İ
+		case '2'://å¢åŠ æ•°æ®
 		{char name[20], sex, room_num[10], parking[10], phone_num[20], ID_num[20], c;
-		out.open("Êı¾İ.dat", ios::app);
+		out.open("æ•°æ®.dat", ios::app);
 		do
 		{
-			cout << "ÇëÊäÈëÄúÒªÔö¼ÓµÄ×¡»§µÄĞÕÃû:" << endl;
+			cout << "è¯·è¾“å…¥æ‚¨è¦å¢åŠ çš„ä½æˆ·çš„å§“å:" << endl;
 			cin >> name;
-			cout << endl << "ÇëÊäÈë×¡»§ĞÔ±ğ:";
+			cout << endl << "è¯·è¾“å…¥ä½æˆ·æ€§åˆ«:";
 			cin >> sex;
-			cout << endl << "ÇëÊäÈëÆä·¿¼äºÅ:";
+			cout << endl << "è¯·è¾“å…¥å…¶æˆ¿é—´å·:";
 			cin >> room_num;
-			cout << endl << "ÇëÊäÈëÆä³µ¿âºÅ:";
+			cout << endl << "è¯·è¾“å…¥å…¶è½¦åº“å·:";
 			cin >> parking;
-			cout << endl << "ÇëÊäÈëÁªÏµµç»°:";
+			cout << endl << "è¯·è¾“å…¥è”ç³»ç”µè¯:";
 			cin >> phone_num;
-			cout << endl << "ÇëÊäÈëÉí·İÖ¤ºÅ:";
+			cout << endl << "è¯·è¾“å…¥èº«ä»½è¯å·:";
 			cin >> ID_num;
 			cout << endl;
-			out << setw(20) << name << setw(5) << sex << setw(10) << room_num << setw(10) << parking << setw(20) << phone_num << setw(20) << ID_num;//ÎÄ¼şÊäÈë
-			cout << "Êı¾İÌí¼Ó³É¹¦£¬Ïë¼ÌĞøÌí¼ÓÂğ£¿y/n:" << endl;
+			out << setw(20) << name << setw(5) << sex << setw(10) << room_num << setw(10) << parking << setw(20) << phone_num << setw(20) << ID_num;//æ–‡ä»¶è¾“å…¥
+			cout << "æ•°æ®æ·»åŠ æˆåŠŸï¼Œæƒ³ç»§ç»­æ·»åŠ å—ï¼Ÿy/n:" << endl;
 			cin >> c;
 			cout << endl;
 			if (c == 'n')break;
 			if (c != 'y' && c != 'n')
 			{
-				cout << "Ö¸Áî´íÎó£¡ÇëÖØĞÂÊäÈë£¡" << endl << "";
+				cout << "æŒ‡ä»¤é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥ï¼" << endl << "";
 				cin >> c;
 			}
 		} while (c == 'y');
 		out.close();
 		break;
 		}
-		case'3'://ĞŞ¸ÄÊı¾İ
+		case'3'://ä¿®æ”¹æ•°æ®
 		{char name[20], sex, room_num[10], parking[10], phone_num[20], ID_num[20], c;
 		char na[20], s, room[10], park[10], phone[20], ID[20];
 		do
 		{
 			int flag = 0;
-			cout << "ÇëÊäÈëÄúÒªĞŞ¸ÄµÄ×¡»§µÄĞÕÃû:" << endl;
+			cout << "è¯·è¾“å…¥æ‚¨è¦ä¿®æ”¹çš„ä½æˆ·çš„å§“å:" << endl;
 			cin >> na;
 			cout << endl;
-			f.open("Êı¾İ.dat", ios::in | ios::out);
+			f.open("æ•°æ®.dat", ios::in | ios::out);
 			f.seekg(0, ios::beg);
 			f.clear();
 			while (!f.eof())
@@ -318,19 +319,19 @@ void name::menu()
 				if (strcmp(name, na) == 0)
 				{
 					flag = 1;
-					cout << "ÇëÊäÈëÄúÒªĞŞ¸ÄµÄ×¡»§µÄĞÕÃû:" << endl;
+					cout << "è¯·è¾“å…¥æ‚¨è¦ä¿®æ”¹çš„ä½æˆ·çš„å§“å:" << endl;
 					cin >> na;
-					cout << "ÇëÊäÈëĞÂ·¿¼äºÅ:";
+					cout << "è¯·è¾“å…¥æ–°æˆ¿é—´å·:";
 					cin >> room;
-					cout << endl << "ÇëÊäÈë×¡»§ĞÔ±ğ:";
+					cout << endl << "è¯·è¾“å…¥ä½æˆ·æ€§åˆ«:";
 					cin >> s;
-					cout << endl << "ÇëÊäÈëÆä·¿¼äºÅ:";
+					cout << endl << "è¯·è¾“å…¥å…¶æˆ¿é—´å·:";
 					cin >> room;
-					cout << endl << "ÇëÊäÈëÆä³µ¿âºÅ:";
+					cout << endl << "è¯·è¾“å…¥å…¶è½¦åº“å·:";
 					cin >> park;
-					cout << endl << "ÇëÊäÈëÁªÏµµç»°:";
+					cout << endl << "è¯·è¾“å…¥è”ç³»ç”µè¯:";
 					cin >> phone;
-					cout << endl << "ÇëÊäÈëÉí·İÖ¤ºÅ:";
+					cout << endl << "è¯·è¾“å…¥èº«ä»½è¯å·:";
 					cin >> ID;
 					cout << endl;
 					sex = s;
@@ -339,39 +340,40 @@ void name::menu()
 					strcpy(ID_num, ID);
 					strcpy(phone_num, phone);
 					f.seekp(-20l, ios::cur);
-					f << setw(20) << na << setw(5) << s << setw(10) << room << setw(10) << park << setw(20) << phone << setw(20) << ID;//ÎÄ¼şÊäÈë
-					cout << "ĞŞ¸Ä³É¹¦!" << endl << endl; break;
+					f << setw(20) << na << setw(5) << s << setw(10) << room << setw(10) << park << setw(20) << phone << setw(20) << ID;//æ–‡ä»¶è¾“å…¥
+					cout << "ä¿®æ”¹æˆåŠŸ!" << endl << endl; break;
 				}
 			}
 			f.close();
 			if (flag == 0)
-				cout << "ÄúÒªĞŞ¸ÄµÄ×¡»§²»´æÔÚ£¡" << endl << endl;
-			cout << "ÄúÏë¼ÌĞøĞŞ¸ÄÂğ£¿y/n:" << endl;
+				cout << "æ‚¨è¦ä¿®æ”¹çš„ä½æˆ·ä¸å­˜åœ¨ï¼" << endl << endl;
+			cout << "æ‚¨æƒ³ç»§ç»­ä¿®æ”¹å—ï¼Ÿy/n:" << endl;
 			cin >> c;
 			cout << endl;
 			if (c == 'n')break;
 			if (c != 'y' && c != 'n')
 			{
-				cout << "Ö¸Áî´íÎó£¡ÇëÖØĞÂÊäÈë£¡" << endl << "";
+				cout << "æŒ‡ä»¤é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥ï¼" << endl << "";
 				cin >> c;
 			}
 		} while (c == 'y');
 		break;
 		}
-		case'4'://ĞÅÏ¢²éÑ¯
-		{char name[20], sex, room_num[10], room[10], parking[10], phone_num[20], ID_num[20];
-		cout << "ÇëÑ¡ÔñÄúÒª½øĞĞ²éÑ¯µÄ·½Ê½£º" << endl << endl << "1.°´×¡»§Ãû²éÑ¯" << endl << endl << "2.°´·¿¼äºÅ²éÑ¯" << endl << endl;
+		case'4'://ä¿¡æ¯æŸ¥è¯¢
+        {
+            char name[20], sex, room_num[10], room[10], parking[10], phone_num[20], ID_num[20];
+		cout << "è¯·é€‰æ‹©æ‚¨è¦è¿›è¡ŒæŸ¥è¯¢çš„æ–¹å¼ï¼š" << endl << endl << "1.æŒ‰ä½æˆ·åæŸ¥è¯¢" << endl << endl << "2.æŒ‰æˆ¿é—´å·æŸ¥è¯¢" << endl << endl;
 		int k;
 		cin >> k;
 		switch (k)
-			case 1://°´×¡»§Ãû²éÑ¯
+			case 1://æŒ‰ä½æˆ·åæŸ¥è¯¢
 		{char na[20]; char c;
 		do {
-			in.open("Êı¾İ.dat", ios::in);
+			in.open("æ•°æ®.dat", ios::in);
 			in.seekg(0, ios::beg);
 			in.clear();
 			int flag = 0;
-			cout << "ÇëÊäÈëÄãÒª²éÑ¯µÄ×¡»§ĞÕÃû:" << endl;
+			cout << "è¯·è¾“å…¥ä½ è¦æŸ¥è¯¢çš„ä½æˆ·å§“å:" << endl;
 			cin >> na;
 			cout << endl;
 			while (!in.eof())
@@ -380,33 +382,33 @@ void name::menu()
 				if (strcmp(name, na) == 0)
 				{
 					flag = 1;
-					cout << "ÄúÒª²éÑ¯µÄ×¡»§:" << name << "µÄĞÅÏ¢ÊÇ:" << endl << endl;
-					cout << "ĞÕÃû--ĞÔ±ğ-----ÃÅÅÆºÅ----³µ¿âºÅ----------µç»°ºÅÂë----------Éí·İÖ¤ºÅ"  << endl;
+					cout << "æ‚¨è¦æŸ¥è¯¢çš„ä½æˆ·:" << name << "çš„ä¿¡æ¯æ˜¯:" << endl << endl;
+					cout << "å§“å--æ€§åˆ«-----é—¨ç‰Œå·----è½¦åº“å·----------ç”µè¯å·ç ----------èº«ä»½è¯å·"  << endl;
 					cout << setw(2) << name << setw(5) << sex << setw(10) << room_num << setw(10) << parking << setw(20) << phone_num << setw(20) << ID_num << endl;
 				}
 			}
 			in.close();
 			if (flag == 0)
-				cout << "¶Ô²»Æğ!ÄúÒª²éÑ¯µÄ×¡»§²»´æÔÚ!" << endl << endl;
-			cout << "ÄúÏë¼ÌĞø²éÑ¯Âğ£¿y/n:";
+				cout << "å¯¹ä¸èµ·!æ‚¨è¦æŸ¥è¯¢çš„ä½æˆ·ä¸å­˜åœ¨!" << endl << endl;
+			cout << "æ‚¨æƒ³ç»§ç»­æŸ¥è¯¢å—ï¼Ÿy/n:";
 			cin >> c;
 			cout << endl;
 			if (c == 'n')break;
 			if (c != 'y' && c != 'n')
 			{
-				cout << "Ö¸Áî´íÎó£¡ÇëÖØĞÂÊäÈë£¡" << endl;
+				cout << "æŒ‡ä»¤é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥ï¼" << endl;
 				cin >> c;
 			}
 		} while (c == 'y');
 		break;
-	case 2://°´·¿¼äºÅ²éÑ¯
+	case 2://æŒ‰æˆ¿é—´å·æŸ¥è¯¢
 		{
 			do {
 				int flag = 0;
-				cout << "ÇëÊäÈëÄãÒª²éÑ¯µÄ·¿¼äºÅ:" << endl;
+				cout << "è¯·è¾“å…¥ä½ è¦æŸ¥è¯¢çš„æˆ¿é—´å·:" << endl;
 				cin >> room;
 				cout << endl;
-				in.open("Êı¾İ.dat", ios::in);
+				in.open("æ•°æ®.dat", ios::in);
 				in.seekg(0, ios::beg);
 				in.clear();
 				while (!in.eof())
@@ -415,36 +417,36 @@ void name::menu()
 					if (strcmp(room_num, room) == 0)
 					{
 						flag = 1;
-						cout << "ÄúÒª²éÑ¯µÄ×¡»§:" << name << "µÄĞÅÏ¢ÊÇ:" << endl << endl;
-						cout << "ĞÕÃû--ĞÔ±ğ-----ÃÅÅÆºÅ----³µ¿âºÅ----------µç»°ºÅÂë----------Éí·İÖ¤ºÅ"  << endl;
+						cout << "æ‚¨è¦æŸ¥è¯¢çš„ä½æˆ·:" << name << "çš„ä¿¡æ¯æ˜¯:" << endl << endl;
+						cout << "å§“å--æ€§åˆ«-----é—¨ç‰Œå·----è½¦åº“å·----------ç”µè¯å·ç ----------èº«ä»½è¯å·"  << endl;
 						cout << setw(2) << name << setw(5) << sex << setw(10) << room_num << setw(10) << parking << setw(20) << phone_num << setw(20) << ID_num << endl;
 					}
 				}
 				in.close();
 				if (flag == 0)
-					cout << "¶Ô²»Æğ!ÄúÒª²éÑ¯µÄ×¡»§²»´æÔÚ!" << endl;
-				cout << "ÄúÏë¼ÌĞø²éÑ¯Âğ£¿y/n:";
+					cout << "å¯¹ä¸èµ·!æ‚¨è¦æŸ¥è¯¢çš„ä½æˆ·ä¸å­˜åœ¨!" << endl;
+				cout << "æ‚¨æƒ³ç»§ç»­æŸ¥è¯¢å—ï¼Ÿy/n:";
 				char c;
 				cin >> c;
 				cout << endl;
 				if (c == 'n')break;
 				if (c != 'y' && c != 'n')
 				{
-					cout << "Ö¸Áî´íÎó£¡ÇëÖØĞÂÊäÈë£¡" << endl;
+					cout << "æŒ‡ä»¤é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥ï¼" << endl;
 					cin >> c;
 				}
 			} while (c == 'y');
 			break;
-		default:cout << "¶Ô²»Æğ£¬ÄúÊäÈëµÄÖ¸ÁîÓĞÎó£º"; }break;
+		default:cout << "å¯¹ä¸èµ·ï¼Œæ‚¨è¾“å…¥çš„æŒ‡ä»¤æœ‰è¯¯ï¼š"; }break;
 		}break;
-		case'5'://ĞÅÏ¢ä¯ÀÀ
+		case'5'://ä¿¡æ¯æµè§ˆ
 		{char name[20], sex, room_num[10], parking[10], phone_num[20], ID_num[20];
-		in.open("Êı¾İ.dat", ios::in);
+		in.open("æ•°æ®.dat", ios::in);
 		in.seekg(0, ios::beg);
 		in.clear();
-		if (in.get() == EOF) { cout << "ÎÄ¼şÖĞÒÑÎŞÊı¾İ" << endl << endl; in.close(); break; }
-		cout << "±¾ÏµÍ³ËùÓĞ×¡»§Êı¾İÈçÏÂ£º" << endl << endl;
-		cout << "ĞÕÃû--ĞÔ±ğ-----ÃÅÅÆºÅ----³µ¿âºÅ----------µç»°ºÅÂë----------Éí·İÖ¤ºÅ" << endl;
+		if (in.get() == EOF) { cout << "æ–‡ä»¶ä¸­å·²æ— æ•°æ®" << endl << endl; in.close(); break; }
+		cout << "æœ¬ç³»ç»Ÿæ‰€æœ‰ä½æˆ·æ•°æ®å¦‚ä¸‹ï¼š" << endl << endl;
+		cout << "å§“å--æ€§åˆ«-----é—¨ç‰Œå·----è½¦åº“å·----------ç”µè¯å·ç ----------èº«ä»½è¯å·" << endl;
 		while (!in.eof())
 		{
 			in >> name >> sex >> room_num >> parking >> phone_num >> ID_num;
@@ -453,17 +455,17 @@ void name::menu()
 		in.close();
 		break;
 		}
-		case'6'://ĞÅÏ¢É¾³ı
+		case'6'://ä¿¡æ¯åˆ é™¤
 		{char name[20], na[20], sex, room_num[10], parking[10], phone_num[20], ID_num[20], c;
 		int k;
 		do
 		{
 			int n = 0; int flag = 0;
-			cout << "ÇëÊäÈëÄúÒªÉ¾³ıµÄ×¡»§µÄĞÕÃû:" << endl;
+			cout << "è¯·è¾“å…¥æ‚¨è¦åˆ é™¤çš„ä½æˆ·çš„å§“å:" << endl;
 			cin >> na;
 			cout << endl;
 			in.clear();
-			in.open("Êı¾İ.dat", ios::in);
+			in.open("æ•°æ®.dat", ios::in);
 			in.seekg(0, ios::beg);
 			while (!in.eof())
 			{
@@ -483,7 +485,7 @@ void name::menu()
 			}
 			if (flag == 1)
 			{
-				out.open("Êı¾İ.dat", ios::out);
+				out.open("æ•°æ®.dat", ios::out);
 				out.seekp(0, ios::beg);
 				if (n > 1)
 				{
@@ -491,53 +493,53 @@ void name::menu()
 						out << setw(2) << liv[i].name << setw(5) << liv[i].sex << setw(10) << liv[i].room_num << setw(10) << liv[i].parking << setw(20) << liv[i].phone_num << setw(20) << liv[i].ID_num;
 					for (i = k + 1; i < n; i++)
 						out << setw(2) << liv[i].name << setw(5) << liv[i].sex << setw(10) << liv[i].room_num << setw(10) << liv[i].parking << setw(20) << liv[i].phone_num << setw(20) << liv[i].ID_num;
-					cout << "ĞÅÏ¢É¾³ı³É¹¦" << endl << endl;
+					cout << "ä¿¡æ¯åˆ é™¤æˆåŠŸ" << endl << endl;
 				}
 				if (n = 1) {}
 				out.close();
 			}
 			else
-				cout << "ÄúÒªÉ¾³ıµÄ×¡»§²»´æÔÚ£¡" << endl << endl;
-			cout << "ÄúÏë¼ÌĞøÉ¾³ıÂğ£¿y/n:" << endl;
+				cout << "æ‚¨è¦åˆ é™¤çš„ä½æˆ·ä¸å­˜åœ¨ï¼" << endl << endl;
+			cout << "æ‚¨æƒ³ç»§ç»­åˆ é™¤å—ï¼Ÿy/n:" << endl;
 			cin >> c;
 			cout << endl;
 			if (c == 'n')break;
 			if (c != 'y' && c != 'n')
 			{
-				cout << "Ö¸Áî´íÎó£¡ÇëÖØĞÂÊäÈë£¡" << endl << "";
+				cout << "æŒ‡ä»¤é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥ï¼" << endl << "";
 				cin >> c;
 			}
 		} while (c == 'y');
 		break;
 		}
-		case'7'://ÍË³ö
+		case'7'://é€€å‡º
 		{cout << "Byebye!See*you*next*time." << endl << endl;
 		cout << "biubiu~" << endl << endl << endl; exit(0); }break; }
-		}//ÒÔÉÏÎªmenu²Ëµ¥ÖĞswitch¿ØÖÆÓï¾ä
-		cout << "ÄúÏë¼ÌĞø½øĞĞÆäËû²Ù×÷Âğ£¿y/n:" << endl << "";//ÒÔÏÂ¿ØÖÆÑ­»·Óï¾ä
+		}//ä»¥ä¸Šä¸ºmenuèœå•ä¸­switchæ§åˆ¶è¯­å¥
+		cout << "æ‚¨æƒ³ç»§ç»­è¿›è¡Œå…¶ä»–æ“ä½œå—ï¼Ÿy/n:" << endl << "";//ä»¥ä¸‹æ§åˆ¶å¾ªç¯è¯­å¥
 		int flag = 0;
 		do {
 			cin >> w;
 			cout << endl;
 			if (w == 'n')exit(0);
 			if (w != 'y' && w != 'n')
-				cout << "Ö¸Áî´íÎó£¡ÇëÖØĞÂÊäÈë£¡" << endl;
+				cout << "æŒ‡ä»¤é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥ï¼" << endl;
 			else
 				flag = 1;
 		} while (flag == 0);
 		if (w == 'y')
 		{
-			cout << "ÇëÊäÈë²Ù×÷´úÂë:1ÊäÈëÊı¾İ" << endl;
-			cout << "2Ôö¼ÓÊı¾İ" << endl;
-			cout << "3ĞŞ¸ÄÊı¾İ" << endl;
-			cout << "4ĞÅÏ¢²éÑ¯" << endl;
-			cout << "5ĞÅÏ¢ä¯ÀÀ" << endl;
-			cout << "6ĞÅÏ¢É¾³ı" << endl;
-			cout << "7ÍË³öÏµÍ³" << endl;
+			cout << "è¯·è¾“å…¥æ“ä½œä»£ç :1è¾“å…¥æ•°æ®" << endl;
+			cout << "2å¢åŠ æ•°æ®" << endl;
+			cout << "3ä¿®æ”¹æ•°æ®" << endl;
+			cout << "4ä¿¡æ¯æŸ¥è¯¢" << endl;
+			cout << "5ä¿¡æ¯æµè§ˆ" << endl;
+			cout << "6ä¿¡æ¯åˆ é™¤" << endl;
+			cout << "7é€€å‡ºç³»ç»Ÿ" << endl;
 		}
 		cin >> p;
-	} while (w == 'y');//×îÍâ²ãµÄdo-whileÑ­»·
-}//menuº¯Êı½áÊø
+	} while (w == 'y');//æœ€å¤–å±‚çš„do-whileå¾ªç¯
+}//menuå‡½æ•°ç»“æŸ
 int main()
 {
 	char m_name[20], passwd[7];
@@ -564,21 +566,66 @@ int main()
 	while(1)
 	{
 		cout << "*****************" << endl;
-		cout << "* 1¡¢ÓÃ»§×¢²á   *" << endl;
-		cout << "* 2¡¢ÓÃ»§µÇÂ¼   *" << endl;
-		cout << "* 3¡¢¹ÜÀíÔ±µÇÂ½ *" << endl;
+		cout << "* 1ã€ç”¨æˆ·æ³¨å†Œ   *" << endl;
+		cout << "* 2ã€ç”¨æˆ·ç™»å½•   *" << endl;
+		cout << "* 3ã€ç®¡ç†å‘˜ç™»é™† *" << endl;
 		cout << "*****************" << endl;
+		
+		memset(m_name, 0, sizeof(m_name));
+		memset(passwd, 0, sizeof(passwd));
 		
 		cin >> chose;
 		switch(chose)
 		{
-			
+			case 1:
+			{
+				cout << "name:";
+				cin >> m_name;
+                cout  << "6ä½å¯†ç :";
+				for(int i=0; i<6; i++)
+				{
+                    passwd[i] = getch();
+					printf("*");
+				}
+                cin.ignore();
+
+				cout << endl;
+
+                user.push_back(User(m_name, passwd, 0));
+				break;
+			}
+            case 2:
+            {
+                cout << "name:";
+                cin >> m_name;
+                cout  << "6ä½å¯†ç :";
+                for(int i=0; i<6; i++)
+                {
+                    passwd[i] = getch();
+                    printf("*");
+                }
+                cin.ignore();
+                cout << endl;
+
+                for(int i=0; i<user.size(); i++)
+                {
+                    if(m_name == user.at(i).name && passwd == user.at(i).passwd && user.at(i).flag==0)
+                    {
+                        cout << "login success" << endl;
+
+                    }
+                    cout << "login fail" << endl;
+                }
+                break;
+            }
+            case 3:
+            {
+                n.key();
+                return 0;
+            }
 		}
 		
 	}
-	
-	
-	
-	n.key();
+
 	return 0;
 }
